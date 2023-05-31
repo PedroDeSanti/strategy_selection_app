@@ -1,16 +1,39 @@
 import 'package:flutter/material.dart';
 
-class DashboardPage extends StatelessWidget {
+class DashboardPage extends StatefulWidget {
   const DashboardPage({super.key});
 
   @override
+  State<DashboardPage> createState() => _DashboardPageState();
+}
+
+class _DashboardPageState extends State<DashboardPage> {
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Dashboard'),
-      ),
-      body: const Center(
-        child: Text('Dashboard'),
+      body: CustomScrollView(
+        slivers: [
+          SliverAppBar.large(
+            centerTitle: true,
+            leading: IconButton(
+              onPressed: () {},
+              icon: const Icon(Icons.menu),
+            ),
+            title: const Text('Dashboard'),
+            actions: [
+              IconButton(
+                onPressed: () {},
+                icon: const Icon(Icons.more_vert),
+              ),
+            ],
+          ),
+          SliverToBoxAdapter(
+            child: Container(
+              height: 900,
+              color: Colors.blue,
+            ),
+          ),
+        ],
       ),
     );
   }
